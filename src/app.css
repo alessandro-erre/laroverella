@@ -213,3 +213,56 @@ body{background:var(--a-bg)}
 .ed-lab{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--a-ink2);margin:12px 0 6px}
 .ed-in{width:100%;background:var(--a-card);border:1.5px solid var(--a-line);border-radius:14px;padding:12px 14px}
 .ed-in:focus{border-color:var(--a-green)}
+
+/* ================= Feed — rifinitura grafica ================= */
+/* Post senza cornice: foto a tutta larghezza, separatore sottile */
+.post{background:transparent;border:0;border-radius:0;margin:0;padding:20px 0 22px;overflow:visible;position:relative}
+.post+.post::before,div+div>.post::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(to right,transparent,var(--a-line) 22%,var(--a-line) 78%,transparent)}
+.post+.post::after,div+div>.post::after{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:26px;height:17px;background:var(--a-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19.06 21.01' fill='%239FB47C'%3E%3Cpath d='M17.31,5.09c-.03-.41.08-.69.14-.92l.16-.55.11-.51c.08-.49.03-.98-.16-1.44-.21-.53-.63-.94-1.14-1.18-.33-.15-.68-.23-1.05-.24-.36-.01-.71.02-1.06.11-.59.15-1.1.49-1.46.98l-.35.54-.22.37c-.07.12-.16.22-.26.31s-.21.13-.34.12c-.14,0-.28-.04-.41-.1l-.48-.2c-.21-.09-.42-.16-.65-.2-.51-.09-1.03-.02-1.5.2-.68.32-1.24.91-1.47,1.64-.12.4-.15.82-.1,1.23.03.24.08.46.14.69l.12.51c.03.12.04.24.02.35,0,.04-.03.06-.05.07-.08.03-.16.04-.25.04l-.38.02c-.42.04-.83.14-1.21.34-.28.15-.52.35-.73.58-.51.57-.67,1.33-.37,2.04.1.25.24.47.41.67l.35.41c.12.15.24.29.34.45.13.21.22.43.12.67-.03.06-.08.1-.14.11l-.35.04c-.63.05-1.18.35-1.57.85-.68.87-.72,2.09-.11,3.02.32.48.75.86,1.24,1.17l.66.38s.03.01.03.02c0,0-.01.02-.02.02l-.97.81c-.66.5-1.33.92-2.11,1.22-.52.2-1.07.3-1.63.3-.2,0-.36.17-.36.36s.15.36.35.37c1.01.03,2.05-.32,2.92-.81.94-.52,1.82-1.24,2.6-1.98.89.67,1.99.89,3.08.67.65-.14,1.27-.49,1.73-.97.2-.2.36-.43.49-.68l.2-.45c.04-.1.09-.2.16-.29.16-.21.66-.27.93-.26l.54.03c.21,0,.42.02.63,0,.31-.03.61-.11.89-.25.4-.2.73-.49.98-.86.42-.62.49-1.34.29-2.05l-.18-.55-.14-.42c-.05-.15-.06-.3-.04-.45,0-.11.07-.2.16-.26.09-.05.18-.1.29-.12l.45-.11c.6-.15,1.02-.33,1.45-.78.32-.32.53-.72.67-1.15.22-.71.12-1.46-.28-2.09-.1-.15-.18-.3-.31-.43l-.42-.43s-.12-.14-.16-.21-.11-.2-.17-.38c-.07-.19-.07-.43-.07-.43h.02v.04ZM16.64,5.67l.16.44c.1.16.19.31.32.45l.16.17c.21.22.41.44.58.7.17.28.25.6.24.93-.04.69-.42,1.33-1.03,1.66-.2.11-.43.17-.65.23-.35.08-.83.2-1.09.43-.39.35-.43.87-.31,1.36l.17.51c.1.26.18.52.23.8.1.56-.1,1.11-.52,1.49-.29.26-.64.43-1.04.46h-.45l-.59-.03c-.47-.03-1.08.07-1.43.38-.16.14-.28.31-.37.5l-.18.4c-.15.33-.37.6-.65.83s-.58.4-.93.5c-.61.17-1.25.16-1.85-.04-.25-.08-.48-.21-.7-.35,0,0-.02-.01-.02-.02s.01-.01.02-.02l.23-.23.23-.23c1.2-1.25,2.26-2.55,3.24-3.98.91-1.33,1.69-2.64,2.38-4.1.46-.96.86-1.94,1.2-2.94.06-.18,0-.37-.16-.46-.2-.12-.45-.02-.53.2l-.32.89c-.56,1.49-1.26,2.91-2.08,4.27-.51.84-1.04,1.66-1.62,2.45-.75,1.01-1.54,1.98-2.4,2.88l-.19.2-.75.75-.83-.45c-.29-.18-.55-.39-.79-.63-.15-.16-.28-.32-.38-.51-.28-.51-.3-1.12-.06-1.66.22-.47.67-.86,1.19-.91l.35-.04c.21-.02.4-.09.57-.22.24-.18.35-.51.37-.8,0-.24-.05-.46-.15-.68-.09-.2-.2-.37-.34-.54l-.2-.24-.34-.39c-.35-.39-.52-.92-.28-1.41.09-.19.22-.35.37-.48.42-.37.89-.5,1.44-.53.34-.02.68-.01.95-.24.15-.13.25-.3.27-.5v-.17c.01-.21-.02-.41-.07-.62l-.15-.6c-.05-.21-.08-.41-.09-.63,0-.21.02-.41.07-.61.05-.21.15-.39.27-.56.37-.51.97-.87,1.62-.86.21,0,.42.04.61.12l.55.22c.19.08.37.14.56.17.39.08.79-.04,1.07-.32.13-.13.25-.27.35-.43l.25-.4.23-.37c.09-.15.21-.28.34-.4.15-.13.3-.24.49-.32.14-.06.27-.11.42-.13.23-.04.46-.06.69-.06.39,0,.71.08,1.03.29.49.32.71.88.68,1.45,0,.26-.06.51-.13.75l-.18.63c-.06.22-.1.44-.12.67v.26s.03.53.06.61,0,0,0,0v.06Z'/%3E%3C/svg%3E") center/12px 14px no-repeat}';position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:11px;line-height:18px;height:18px;padding:0 9px;background:var(--a-bg);color:var(--a-sage);opacity:.75}
+.mese-sep+.post::before,.mese-sep+.post::after{display:none}
+.post-h{gap:12px;padding:0 20px 12px}
+.post-h .ava{width:40px;height:40px;box-shadow:0 0 0 1px rgba(37,35,28,.05)}
+.post-h .n{font-size:14.5px;font-weight:700;letter-spacing:-.01em;gap:7px}
+.post-h .d{font-size:12px;color:var(--a-muted);letter-spacing:.01em;margin-top:1px}
+.chip-admin{font-size:8.5px;padding:2.5px 6.5px;border-radius:6px;background:var(--a-green-soft);color:var(--a-green);letter-spacing:.1em}
+.post-txt{padding:0 20px 14px;font-size:15px;line-height:1.55;color:var(--a-ink);text-wrap:pretty}
+/* foto edge-to-edge */
+.post-media{border-radius:0;background:var(--a-green-soft)}
+.post-media img,.post-media video{width:100%;height:auto;display:block}
+/* azioni: più respiro, meno peso */
+.post-acts{gap:2px;padding:12px 12px 4px}
+.react{gap:7px;padding:8px 10px;font-size:13px;font-weight:600;color:var(--a-ink2);border-radius:12px}
+.react.on{background:transparent;color:#4D902B}
+/* reazioni: una riga scorrevole invece di andare a capo */
+.emoji-row{flex-wrap:nowrap;overflow-x:auto;padding:6px 20px 14px;gap:7px;scrollbar-width:none;-ms-overflow-style:none}
+.emoji-row::-webkit-scrollbar{display:none}
+.emoji-pill{flex-shrink:0;background:var(--a-card);border-color:transparent;box-shadow:0 1px 2px rgba(37,35,28,.05);padding:5px 11px;font-weight:600}
+.emoji-pill.on{border-color:var(--a-green);background:var(--a-green-soft);box-shadow:none}
+/* commenti */
+.cmt-strip{padding:0 20px;border-top:0}
+.cmt{gap:10px;margin-bottom:9px}
+.cmt .b{background:var(--a-card);border-radius:6px 16px 16px 16px;padding:9px 13px;box-shadow:0 1px 2px rgba(37,35,28,.05);line-height:1.45}
+.cmt-in input{background:var(--a-card);border-color:transparent;box-shadow:0 1px 3px rgba(37,35,28,.06);padding:11px 16px}
+.cmt-in input:focus{box-shadow:0 0 0 1.5px var(--a-sage)}
+.cmt-send{width:40px;height:40px}
+/* barra in alto: si stacca dal contenuto scorrendo */
+.tb{padding:14px 20px 12px;background:rgba(247,243,234,.86);backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);border-bottom:1px solid transparent;transition:border-color .2s}
+.scr:not(:hover) .tb{border-color:transparent}
+/* composer: pillola bianca invece del tratteggio */
+.composer{border:1px solid #C06B44EB;border-radius:999px;background:#FFFFFF;box-shadow:0 2px 10px rgba(37,35,28,.07);margin:2px 20px 10px;padding:11px 16px 11px 12px;font-size:14px}
+.composer .ava{width:34px;height:34px;font-size:16px}
+.load-more{margin:8px 20px 4px}
+.post-acts .react svg{display:block}
+
+/* ---- texture di carta sullo sfondo crema ---- */
+.app{position:relative;isolation:isolate}
+.app::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E")}
+.app>*{position:relative;z-index:1}
+
+/* ---- separatore del mese, come un diario ---- */
+.mese-sep{display:flex;align-items:center;gap:14px;padding:26px 20px 10px}
+.mese-sep::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--a-line),transparent)}
+.mese-sep span{font-family:var(--a-display);font-size:27px;font-weight:600;color:var(--a-green);letter-spacing:-.015em;text-transform:lowercase;line-height:1}
+.mese-sep+.post::before{display:none}
+
+/* ---- foglie al posto del contatore ---- */

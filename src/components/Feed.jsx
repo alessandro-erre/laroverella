@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { supabase, EMOJIS, timeAgo, uploadMedia, deleteMedia } from '../lib/supabase'
-import { Ic, ICONS, LogoMark, APP_NAME, APP_CLAIM } from './icons'
+import { supabase, EMOJIS, timeAgo, meseLabel, uploadMedia, deleteMedia } from '../lib/supabase'
+import { Ic, ICONS, LeafIcon, LogoMark, APP_NAME, APP_CLAIM } from './icons'
 import { SourcePick, Cropper } from './MediaPicker'
 
 const PAGE = 5
@@ -128,7 +128,16 @@ export default function Feed({ user, profile, notify, unread, onOpenNotifs }) {
           <span style={{ marginLeft: 'auto', color: 'var(--a-green)' }}><Ic d={ICONS.cam} size={20} /></span>
         </button>
       )}
-      {posts.map(p => <Post key={p.id} p={p} user={user} profile={profile} onReact={e => toggleReaction(p, e)} onComment={txt => addComment(p, txt)} onDelete={() => removePost(p)} />)}
+      {posts.map((p, i) => {
+        const mese = meseLabel(p.created_at)
+        const nuovoMese = i === 0 || mese !== meseLabel(posts[i - 1].created_at)
+        return (
+          <div key={p.id}>
+            {nuovoMese && <div className="mese-sep"><span>{mese}</span></div>}
+            <Post p={p} user={user} profile={profile} onReact={e => toggleReaction(p, e)} onComment={txt => addComment(p, txt)} onDelete={() => removePost(p)} />
+          </div>
+        )
+      })}
       {loading && <div style={{ padding: 30 }}><span className="spinner"></span></div>}
       {!loading && posts.length === 0 && <div className="empty"><div className="e">🌱</div>Ancora nessun post.<br />{profile.is_admin ? 'Pubblica il primo!' : 'Torna presto a trovarci.'}</div>}
       {!loading && !end && posts.length > 0 && <button className="load-more" onClick={() => load(posts.length)}>Carica altri post</button>}
@@ -172,16 +181,13 @@ function Post({ p, user, profile, onReact, onComment, onDelete }) {
       )}
       <div className="post-acts">
         <button className={'react' + (liked ? ' on' : '') + (pop ? ' pop' : '')} onClick={like}>
-          <span className="h"><Ic d={ICONS.heart} size={19} fill={liked ? 'currentColor' : 'none'} /></span>
-          {likes.length}
+          <span className="h"><LeafIcon size={19} filled={liked} /></span>
+          {likes.length || ''}
         </button>
-        <button className="react" onClick={() => document.getElementById(`cmt-${p.id}`)?.focus()}>💬 {p.comments.length}</button>
-      </div>
-      <div className="emoji-row">
-        {EMOJIS.map(e => {
-          const c = emojiCount(e)
-          return <button key={e} className={'emoji-pill' + (mine(e) ? ' on' : '')} onClick={() => onReact(e)}>{e}{c > 0 ? ` ${c}` : ''}</button>
-        })}
+        <button className="react" onClick={() => document.getElementById(`cmt-${p.id}`)?.focus()}>
+          <Ic d={ICONS.chat} size={19} />
+          {p.comments.length || ''}
+        </button>
       </div>
       <div className="cmt-strip">
         {comments.map(c => (
