@@ -1,4 +1,4 @@
-import { LEAF_OFF, LEAF_SOLID } from './leafPath'
+import { LEAF_OFF, LEAF_OFF_VB, LEAF_ON_OUTLINE, LEAF_ON_FILL, LEAF_ON_VB } from './leafPath'
 
 export function Ic({ d, size = 22, sw = 1.9, fill = 'none' }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke="currentColor" strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
