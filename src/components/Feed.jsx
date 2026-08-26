@@ -124,7 +124,7 @@ export default function Feed({ user, profile, notify, unread, onOpenNotifs }) {
       {profile.is_admin && (
         <button className="composer" onClick={() => setComposer(true)}>
           <span className="ava">{profile.avatar}</span>
-          Racconta qualcosa alla community…
+          Racconta qualcosa…
           <span style={{ marginLeft: 'auto', color: 'var(--a-green)' }}><Ic d={ICONS.cam} size={20} /></span>
         </button>
       )}
@@ -151,8 +151,8 @@ function Post({ p, user, profile, onReact, onComment, onDelete }) {
   const [cmt, setCmt] = useState('')
   const [pop, setPop] = useState(false)
   const [showAll, setShowAll] = useState(false)
-  const likes = p.reactions.filter(r => r.emoji === '❤️')
-  const liked = likes.some(r => r.user_id === user.id)
+  const liked = p.reactions.some(r => r.user_id === user.id)
+  const totReactions = p.reactions.length
   const like = () => { setPop(true); setTimeout(() => setPop(false), 500); onReact('❤️') }
   const comments = showAll ? p.comments : p.comments.slice(0, 2)
   const emojiCount = (e) => p.reactions.filter(r => r.emoji === e).length
@@ -182,7 +182,7 @@ function Post({ p, user, profile, onReact, onComment, onDelete }) {
       <div className="post-acts">
         <button className={'react' + (liked ? ' on' : '') + (pop ? ' pop' : '')} onClick={like}>
           <span className="h"><LeafIcon size={19} filled={liked} /></span>
-          {likes.length || ''}
+          {totReactions || ''}
         </button>
         <button className="react" onClick={() => document.getElementById(`cmt-${p.id}`)?.focus()}>
           <Ic d={ICONS.chat} size={19} />
